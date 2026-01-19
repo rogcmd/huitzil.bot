@@ -17,32 +17,12 @@ ignorePorts = false
 expertMode = true
 
 [workflows]
-runButton = "Project"
+runButton = "run bot"
 
 [[workflows.workflow]]
 name = "run bot"
 mode = "sequential"
 author = 53230918
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run dev"
-
-[[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Development Server"
-
-[[workflows.workflow]]
-name = "Development Server"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"

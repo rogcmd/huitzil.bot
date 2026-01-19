@@ -3,8 +3,8 @@ import { MoveData, CharacterInfo } from "../charInterface.js";
 const moMoveset: MoveData[] = [
   // normals
   {
-    name: "Standing LP (5LP)",
-    command: "5lp",
+    name: "Standing LP",
+    command: "5LP",
     startup: "5",
     active: "3",
     recovery: "7",
@@ -16,16 +16,16 @@ const moMoveset: MoveData[] = [
     image: "https://wiki.gbl.gg/images/f/f9/Vsav-MO-5-lp-hitbox.png",
   },
   {
-    name: "Standing MP (5MP)",
-    command: "5mp",
+    name: "Standing MP",
+    command: "5MP",
     startup: "3",
     active: "5",
     recovery: "6",
     description: "** **",
   },
   {
-    name: "Standing HP (5HP)",
-    command: "5hp",
+    name: "Standing HP",
+    command: "5HP",
     startup: "3",
     active: "5",
     recovery: "6",

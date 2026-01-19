@@ -23,7 +23,7 @@ const commandIndex: Record<string, number> = {
 
 command.subcommand({
   name: "morrigan",
-  description: "Morrigan framedata",
+  description: "morrigan framedata",
   options: [
     {
       name: "moves",
@@ -38,12 +38,15 @@ command.subcommand({
   ],
 
   async run(interaction) {
+    await interaction.reply(
+      res.warning("fetching data...").with({ flags: [] }),
+    );
 
     const selectedCommand = interaction.options.getString("moves", true);
     const index = commandIndex[selectedCommand];
 
     if (index === undefined) {
-      await interaction.editReply(res.primary("Invalid move command."));
+      await interaction.editReply(res.danger("index indefinido."));
       return;
     }
 
@@ -51,7 +54,10 @@ command.subcommand({
 
     const sections = [
       createSection(
-        brBuilder(`## ${character.name} - ${move.name}`, `-# ${vsav.game}`),
+        brBuilder(
+          `## ${character.name} - ${move.name} (${move.command})`,
+          `-# ${vsav.game}`,
+        ),
         `${icon}`,
       ),
       createSeparator(),
@@ -61,8 +67,9 @@ command.subcommand({
         `Recovery: ${move.recovery}`,
         `Adv. on hit: ${move.onHit}`,
         `Adv. on block: ${move.onBlock}`,
-        `Guard: ${move.guard}`,
+        `cancel: ${move.cancel}`,
         `Invul: ${move.invul}`,
+        `Guard: ${move.guard}`,
       ),
     ];
 
@@ -78,6 +85,6 @@ command.subcommand({
       sections.push(brBuilder(move.description));
     }
 
-    await interaction.reply(res.primary(...sections).with({flags:[]}));
+    await interaction.editReply(res.primary(...sections));
   },
 });

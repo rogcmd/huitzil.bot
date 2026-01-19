@@ -6,6 +6,7 @@ interface MoveData {
   recovery: string;
   onHit?: string;
   onBlock?: string;
+  cancel?: string;
   invul?: string;
   guard?: string;
   description?: string;

@@ -16,9 +16,12 @@ const icon = character.icon;
 const moves = character.moves;
 
 const commandIndex: Record<string, number> = {
-  "5lp": 0,
-  "5mp": 1,
-  "5hp": 2,
+  "5LP": 0,
+  "5MP": 1,
+  "5HP": 2,
+  "5LK": 3,
+  "5MK": 4,
+  "5HK": 5,
 };
 
 command.subcommand({
@@ -37,13 +40,16 @@ command.subcommand({
     },
   ],
 
-  async run(interaction: any) {
-    
+  async run(interaction) {
+    await interaction.reply(
+      res.success("fetching data...").with({ flags: [] }),
+    );
+
     const selectedCommand = interaction.options.getString("moves", true);
     const index = commandIndex[selectedCommand];
 
     if (index === undefined) {
-      await interaction.editReply(res.primary("Invalid move command."));
+      await interaction.editReply(res.danger("index indefinido."));
       return;
     }
 
@@ -51,7 +57,10 @@ command.subcommand({
 
     const sections = [
       createSection(
-        brBuilder(`## ${character.name} - ${move.name}`, `-# ${vsav.game}`),
+        brBuilder(
+          `## ${character.name} - ${move.name} (${move.command})`,
+          `-# ${vsav.game}`,
+        ),
         `${icon}`,
       ),
       createSeparator(),
@@ -61,8 +70,9 @@ command.subcommand({
         `Recovery: ${move.recovery}`,
         `Adv. on hit: ${move.onHit}`,
         `Adv. on block: ${move.onBlock}`,
-        `Guard: ${move.guard}`,
+        `cancel: ${move.cancel}`,
         `Invul: ${move.invul}`,
+        `Guard: ${move.guard}`,
       ),
     ];
 
@@ -78,6 +88,6 @@ command.subcommand({
       sections.push(brBuilder(move.description));
     }
 
-    await interaction.reply(res.primary(...sections).with({flags:[]}));
+    await interaction.editReply(res.primary(...sections));
   },
 });
