@@ -22,6 +22,18 @@ const commandIndex: Record<string, number> = {
   "5LK": 3,
   "5MK": 4,
   "5HK": 5,
+  "cl.5LP": 6,
+  "cl.5MP": 7,
+  "cl.5HP": 8,
+  "cl.5LK": 9,
+  "cl.5MK": 10,
+  "cl.5HK": 11,
+  "2LP": 12,
+  "2MP": 13,
+  "2HP": 14,
+  "2LK": 15,
+  "2MK": 16,
+  "2HK": 17,
 };
 
 command.subcommand({
@@ -49,7 +61,7 @@ command.subcommand({
     const index = commandIndex[selectedCommand];
 
     if (index === undefined) {
-      await interaction.editReply(res.danger("index indefinido."));
+      await interaction.editReply(res.danger("index indefinido, reporte o dev."));
       return;
     }
 
