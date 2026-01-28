@@ -1,5 +1,6 @@
-# 🤖 Huitzil bot
-A Vampire savior framedata bot for discord made with [constatic CLI](https://github.com/rinckodev/constatic) by [@rinckodev](https://github.com/rinckodev)
+# Huitzil bot
+## overview 
+huitzil is a Vampire savior framedata bot for Discord made with [Constatic CLI](https://github.com/rinckodev/constatic) by [@rinckodev](https://github.com/rinckodev)
 
 ## `.env` Settings:
 
@@ -11,4 +12,6 @@ A Vampire savior framedata bot for discord made with [constatic CLI](https://git
 > U must put your own BOT_TOKEN on .env
 
 ## Bot commands
-/vsav [character] [move]: Display a detailed info for a move by a character
+| Command | Description |
+| :--- | :--- |
+| /vsav [character] [move] | Display a detailed info for a move by a character |
