@@ -5,7 +5,9 @@ huitzil is a Vampire savior framedata bot for Discord made with [Constatic CLI](
 ## `.env` Settings:
 
 - `BOT_TOKEN`: Bot token. Remember to enable the necessary intents.
-
+``` env
+BOT_TOKEN=yourtoken
+``` 
 ## Scripts
 - `bun install` to install dependencies
 - `bun dev` to run the bot on development
