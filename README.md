@@ -4,7 +4,6 @@ A Vampire savior framedata bot for discord made with [constatic CLI](https://git
 ## `.env` Settings:
 
 - `BOT_TOKEN`: Bot token. Remember to enable the necessary intents.
-- `OWNER_ID`: ID of the bot owner, who will have full permissions. You can also configure roles that will have access to commands via the /settings command.
 
 ## Scripts
 - `bun install` to install dependencies
